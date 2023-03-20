@@ -7,7 +7,8 @@ class MyTheme {
       scaffoldBackgroundColor: Colors.transparent,
       textTheme: TextTheme(
         bodyMedium: TextStyle(fontSize: 20, color: Colors.black),
-        headlineMedium: TextStyle(fontSize: 28, color: Colors.black),
+        headlineMedium: TextStyle(
+            fontSize: 28, fontWeight: FontWeight.w500, color: Colors.black),
         headlineSmall: TextStyle(fontSize: 24, color: Colors.black),
       ),
       appBarTheme: AppBarTheme(

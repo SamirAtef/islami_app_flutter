@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/home/quran/sura_details.dart';
+import 'package:islami_app/home/hadeth/hadeth_details.dart';
 
-class SuraNameWidget extends StatelessWidget {
+import 'hadeth_tab.dart';
+
+class HadethNameItem extends StatelessWidget {
   String title;
-  int index;
-  SuraNameWidget(this.index, this.title);
+  Hadeth hadethModel;
+
+  HadethNameItem(this.hadethModel, this.title);
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, SuraDetailsScreen.routeName,
-            arguments: SuraDetailsArgs(index, title));
+        Navigator.pushNamed(
+          context,
+          HadethDetails.routeName,
+          arguments: hadethModel,
+        );
       },
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 6),

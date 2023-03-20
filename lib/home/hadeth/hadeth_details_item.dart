@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 
-class VerseWidget extends StatelessWidget {
-  String content;
-  int index;
+class HadethDetailsItem extends StatelessWidget {
+  String text;
 
-  VerseWidget(this.content, this.index);
+  HadethDetailsItem(this.text);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 6),
+      padding: EdgeInsets.all(10),
       alignment: Alignment.center,
       child: Column(
         children: [
           Center(
             child: Text(
-              '$content { ${index + 1} }',
+              '$text',
               style: Theme.of(context).textTheme.bodyMedium,
             ),
           ),

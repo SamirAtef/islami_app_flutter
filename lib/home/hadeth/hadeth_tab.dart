@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami_app/home/hadeth/hadeth_name_item.dart';
 
 class HadethTab extends StatefulWidget {
   @override
@@ -12,11 +13,43 @@ class _HadethTabState extends State<HadethTab> {
   @override
   Widget build(BuildContext context) {
     if (hadethList.isEmpty) readHadethFile();
-    return ListView.builder(
-      itemBuilder: (_, index) {
-        return Text(hadethList[index].title);
-      },
-      itemCount: hadethList.length,
+    return Column(
+      children: [
+        Image.asset('assets/images/ic_basmala.png'),
+        Container(
+            width: double.infinity,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              border: Border.symmetric(
+                  horizontal: BorderSide(
+                color: Theme.of(context).primaryColor,
+                width: 2,
+              )),
+            ),
+            padding: EdgeInsets.symmetric(
+              vertical: 6,
+            ),
+            child: Text(
+              ' الاحاديث ',
+              style: Theme.of(context).textTheme.headlineMedium,
+            )),
+        Expanded(
+          child: ListView.separated(
+            itemBuilder: (_, index) {
+              return HadethNameItem(hadethList[index], hadethList[index].title);
+            },
+            itemCount: hadethList.length,
+            separatorBuilder: (_, index) {
+              return Container(
+                margin: EdgeInsets.symmetric(horizontal: 64),
+                color: Theme.of(context).primaryColor,
+                width: double.infinity,
+                height: 2,
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 
@@ -24,24 +57,23 @@ class _HadethTabState extends State<HadethTab> {
     String fileContent =
         await rootBundle.loadString('assets/files/ahadeth.txt');
     List<Hadeth> ahadethOfFile = [];
-    List<String> allHadeth = fileContent.trim().split("#");
+    List<String> allHadeth = fileContent.trim().split('#');
     for (int i = 0; i < allHadeth.length; i++) {
       List<String> hadethLines = allHadeth[i].trim().split('\n');
       String title = hadethLines[0];
       if (title.isEmpty) continue;
       hadethLines.removeAt(0);
-      String content = hadethLines.join('\n');
-      Hadeth h = Hadeth(title, content);
+      // String content = hadethLines.join("\n");
+      Hadeth h = Hadeth(title, hadethLines);
       ahadethOfFile.add(h);
     }
     hadethList = ahadethOfFile;
     setState(() {});
   }
 }
-
 class Hadeth {
   String title;
-  String content;
+  List<String> content;
 
   Hadeth(this.title, this.content);
 }
