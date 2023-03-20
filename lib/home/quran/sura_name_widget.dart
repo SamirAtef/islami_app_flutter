@@ -4,9 +4,7 @@ import 'package:islami_app/home/quran/sura_details.dart';
 class SuraNameWidget extends StatelessWidget {
   String title;
   int index;
-
   SuraNameWidget(this.index, this.title);
-
   @override
   Widget build(BuildContext context) {
     return InkWell(

@@ -13,9 +13,11 @@ class VerseWidget extends StatelessWidget {
       alignment: Alignment.center,
       child: Column(
         children: [
-          Text(
-            '$content { ${index + 1} }',
-            style: Theme.of(context).textTheme.bodyMedium,
+          Center(
+            child: Text(
+              '$content { ${index + 1} }',
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
           ),
         ],
       ),
