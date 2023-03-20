@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/hadeth_tab.dart';
-import 'package:islami_app/my_colors.dart';
-import 'package:islami_app/quran_tab.dart';
-import 'package:islami_app/radio_tab.dart';
-import 'package:islami_app/tasbhe_tab.dart';
+import 'package:islami_app/home/hadeth/hadeth_tab.dart';
+import 'package:islami_app/home/quran/quran_tab.dart';
+import 'package:islami_app/home/radio/radio_tab.dart';
+import 'package:islami_app/home/tasbeh/tasbhe_tab.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'Home';
@@ -27,24 +26,16 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
           title: Center(
             child: Text(
               'Islami',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 30,
-                fontWeight: FontWeight.w500,
-              ),
             ),
           ),
         ),
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
-            canvasColor: MyColors.primaryColor,
+            canvasColor: Theme.of(context).primaryColor,
           ),
           child: BottomNavigationBar(
             currentIndex: selectedIndex,
@@ -52,16 +43,6 @@ class _HomeScreenState extends State<HomeScreen> {
               selectedIndex = index;
               setState(() {});
             },
-            selectedIconTheme: IconThemeData(
-              color: Colors.black,
-              size: 30,
-            ),
-            unselectedIconTheme: IconThemeData(color: Colors.white),
-            selectedLabelStyle: TextStyle(
-              color: Colors.black,
-            ),
-            selectedItemColor: Colors.black,
-            unselectedItemColor: Colors.white,
             items: [
               BottomNavigationBarItem(
                   icon: ImageIcon(
