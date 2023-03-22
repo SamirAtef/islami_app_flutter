@@ -4,10 +4,9 @@ import 'package:islami_app/home/hadeth/hadeth_details.dart';
 import 'hadeth_tab.dart';
 
 class HadethNameItem extends StatelessWidget {
-  String title;
   Hadeth hadethModel;
 
-  HadethNameItem(this.hadethModel, this.title);
+  HadethNameItem(this.hadethModel);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +22,7 @@ class HadethNameItem extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 6),
         alignment: Alignment.center,
         child: Text(
-          title,
+          hadethModel.title,
           style: Theme.of(context).textTheme.headlineSmall,
         ),
       ),
