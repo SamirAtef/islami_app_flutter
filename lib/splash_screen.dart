@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import 'home_screen.dart';
+import 'home/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Container(
         child: Center(
           child: Image(
-            image: AssetImage('images/splash_light.png'),
+            image: AssetImage('assets/images/splash_light.png'),
             fit: BoxFit.fill,
             height: double.infinity,
             width: double.infinity,
