@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/home/hadeth/hadeth_name_item.dart';
 
 class HadethTab extends StatefulWidget {
@@ -30,22 +31,24 @@ class _HadethTabState extends State<HadethTab> {
               vertical: 6,
             ),
             child: Text(
-              ' الاحاديث ',
+              AppLocalizations.of(context)!.hadeth_Name_title,
               style: Theme.of(context).textTheme.headlineMedium,
             )),
         Expanded(
-          child: ListView.separated(
-            itemBuilder: (_, index) {
-              return HadethNameItem(hadethList[index], hadethList[index].title);
-            },
-            itemCount: hadethList.length,
-            separatorBuilder: (_, index) {
-              return Container(
-                margin: EdgeInsets.symmetric(horizontal: 64),
-                color: Theme.of(context).primaryColor,
-                width: double.infinity,
-                height: 2,
-              );
+          child: hadethList.isEmpty
+              ? Center(child: CircularProgressIndicator())
+              : ListView.separated(
+                  itemBuilder: (_, index) {
+                    return HadethNameItem(hadethList[index]);
+                  },
+                  itemCount: hadethList.length,
+                  separatorBuilder: (_, index) {
+                    return Container(
+                      margin: EdgeInsets.symmetric(horizontal: 64),
+                      color: Theme.of(context).primaryColor,
+                      width: double.infinity,
+                      height: 2,
+                    );
             },
           ),
         ),

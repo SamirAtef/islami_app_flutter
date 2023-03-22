@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/home/hadeth/hadeth_tab.dart';
 import 'package:islami_app/home/quran/quran_tab.dart';
 import 'package:islami_app/home/radio/radio_tab.dart';
@@ -29,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: AppBar(
           title: Center(
             child: Text(
-              'Islami',
+              AppLocalizations.of(context)!.app_title,
             ),
           ),
         ),
@@ -45,25 +46,29 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             items: [
               BottomNavigationBarItem(
-                  icon: ImageIcon(
-                    AssetImage('assets/images/quran.png'),
-                  ),
-                  label: 'Quran'),
+                icon: ImageIcon(
+                  AssetImage('assets/images/quran.png'),
+                ),
+                label: AppLocalizations.of(context)!.quran_title,
+              ),
               BottomNavigationBarItem(
-                  icon: ImageIcon(
-                    AssetImage('assets/images/ic_hadeth.png'),
-                  ),
-                  label: 'Hadeth'),
+                icon: ImageIcon(
+                  AssetImage('assets/images/ic_hadeth.png'),
+                ),
+                label: AppLocalizations.of(context)!.hadeth_title,
+              ),
               BottomNavigationBarItem(
-                  icon: ImageIcon(
-                    AssetImage('assets/images/sebha.png'),
-                  ),
-                  label: 'Sebha'),
+                icon: ImageIcon(
+                  AssetImage('assets/images/sebha.png'),
+                ),
+                label: AppLocalizations.of(context)!.tasbeh_title,
+              ),
               BottomNavigationBarItem(
-                  icon: ImageIcon(
-                    AssetImage('assets/images/radio.png'),
-                  ),
-                  label: 'Radio'),
+                icon: ImageIcon(
+                  AssetImage('assets/images/radio.png'),
+                ),
+                label: AppLocalizations.of(context)!.radio_title,
+              ),
             ],
           ),
         ),

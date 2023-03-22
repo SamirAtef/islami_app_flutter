@@ -30,7 +30,13 @@ class HadethDetails extends StatelessWidget {
         ),
         body: ListView.separated(
           itemBuilder: (_, index) {
-            return HadethDetailsItem(model.content[index]);
+            return Container(
+                margin: EdgeInsets.symmetric(horizontal: 12),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(24),
+                ),
+                child: HadethDetailsItem(model.content[index]));
           },
           separatorBuilder: (_, index) {
             return Container(

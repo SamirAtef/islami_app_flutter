@@ -15,6 +15,7 @@ class HadethDetailsItem extends StatelessWidget {
           Center(
             child: Text(
               '$text',
+              textDirection: TextDirection.rtl,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
           ),
